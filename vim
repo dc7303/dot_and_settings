@@ -5,15 +5,37 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-" python
+"""""""""""""""""""""""""""""""""""""" python
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
+""""""""""""""""""""""""""""""""""""""
 
+" auto completer
+Plugin 'Valloric/YouCompleteMe' " ./install.py --clang-completer --js-completer
+
+" file tree
+Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
-" YCM option
+""""""""""""""""""""""""""""""""""""" YCM option
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_keylist_previous_completion = ['<C-p>']
+
+" 자동완성 창 자동 닫기
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" 주석과 문자열도 자동 완성에 사용할 소스로 수집
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_complete_in_comments = 1
+
+" 한 글자만 입력해도 작동할 것
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" python
+" let g:ycm_server_python_interpreter = '~/anaconda3/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+"""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
 
@@ -47,7 +69,7 @@ set expandtab
 
 " 특정 확장자에 따른 들여쓰기
 " PEP 8
-au BufNewFile,BufRead *.py
+au BufNewFile, BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
@@ -58,7 +80,7 @@ au BufNewFile,BufRead *.py
 
 
 " JS
-au BufNewFile,BufRead *.js,*.css,*.ts
+au BufNewFile, BufRead *.js,*.css,*.ts
     \ set ts=2
     \ set sts=2
     \ set sw=4
