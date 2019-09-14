@@ -14,6 +14,13 @@ Plugin 'Valloric/YouCompleteMe' " ./install.py --clang-completer --js-completer
 
 " file tree
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-gitgutter'
+Plugin 'vim-fugitive'
+
+Plugin 'scrooloose/syntastic'
+
 call vundle#end()
 
 """"""""""""""""""""""""""""""""""""" YCM option
@@ -35,6 +42,26 @@ let g:ycm_min_num_of_chars_for_completion = 1
 " python
 " let g:ycm_server_python_interpreter = '~/anaconda3/bin/python'
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
+
+let g:ycm_filetype_whitelist = {
+            \ 'c': 1,
+            \ 'cpp': 1,
+            \ 'objc': 1,
+            \ 'sh': 1,
+            \ 'zsh': 1,
+            \ 'python': 1,
+            \ 'js': 1,
+            \}
+
+let g:syntastic_python_checkers = ['pep8']
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:jedi#auto_initialization = 0
+let g:jedi#completions_enabled = 0
 """""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
