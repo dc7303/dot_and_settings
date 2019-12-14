@@ -126,3 +126,8 @@ echo '[.zshrc] init jenv'
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+# NVM
+echo '[.zshrc] init nvm'
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
