@@ -35,6 +35,9 @@ Plugin 'blueyed/vim-diminactive'
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plugin 'valloric/youcompleteme'
 
+Plugin 'ryanoasis/vim-devicons' " dependency: https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 call vundle#end()
 
 filetype plugin indent on
