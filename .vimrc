@@ -37,6 +37,9 @@ Plugin 'valloric/youcompleteme'
 
 Plugin 'ryanoasis/vim-devicons' " dependency: https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 call vundle#end()
 
@@ -62,12 +65,15 @@ endif
 set mouse=a
 
 set splitbelow
+set hidden
+
+command -nargs=1 Vg vimgrep /<args>/gj **/* | copen
 
 colorscheme jellybeans
 
 " NERDTree
-nmap <C-t> :TagbarToggle<CR>
-nmap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :TagbarToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
 
@@ -79,5 +85,25 @@ let g:indent_guides_guide_size=1
 " vim-dimInactive
 let g:diminactive_enable_focus=1
 
+" airline
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#buffer_nr_show=1
+let g:airline#extensions#tabline#buffer_nr_format='%s:'
+nnoremap <C-.> :bn<CR>
+nnoremap <C-,> :bp<CR>
+
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion=1
+
+" fzf
+nnoremap <S><S> :Files<CR>
+
+" Buffergator
+let g:buffergator_viewport_split_policy = 'B'
+let g:buffergator_suppress_keymaps=1
+let g:buffergator_mru_cycle_loop=1
+nmap <Leader>jj :BuffergatorMruCyclePrev<CR>
+nmap <Leader>kk :BuffergatorMruCycleNext<CR>
+nmap <Leader>bl :BuffergatorOpen<CR>
+nmap <Leader>bq :bp <BAR> bd #<CR>
