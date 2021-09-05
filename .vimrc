@@ -66,6 +66,8 @@ set mouse=a
 
 set splitbelow
 set hidden
+let mapleader=","
+let maplocalleader=","
 
 command -nargs=1 Vg vimgrep /<args>/gj **/* | copen
 
@@ -90,20 +92,16 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline#extensions#tabline#buffer_nr_show=1
 let g:airline#extensions#tabline#buffer_nr_format='%s:'
-nnoremap <C-.> :bn<CR>
-nnoremap <C-,> :bp<CR>
 
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion=1
 
 " fzf
-nnoremap <S><S> :Files<CR>
+nnoremap <Leader>f :Files<CR>
 
 " Buffergator
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_suppress_keymaps=1
 let g:buffergator_mru_cycle_loop=1
-nmap <Leader>jj :BuffergatorMruCyclePrev<CR>
-nmap <Leader>kk :BuffergatorMruCycleNext<CR>
 nmap <Leader>bl :BuffergatorOpen<CR>
 nmap <Leader>bq :bp <BAR> bd #<CR>
