@@ -1,0 +1,52 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$hg_branch\
+$package\
+$cmake\
+$helm\
+$julia\
+$kubernetes\
+$docker_context\
+$terraform\
+$zig\
+$nix_shell\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[kubernetes]
+format = '[$symbol $context ([\($namespace\)](fg:201 bold))]($style) '
+symbol="☸️ "
+style="fg:84 bold"
+disabled = false
+
+[aws]
+format = '[$symbol $profile(\($region\))]($style) ' 
+style="fg:214 bold"
+symbol="⛅"
+
+[gcloud]
+format = '[$symbol $account(\($region\))]($style) '
+style="fg:32 bold"
+
+[git_branch]
+format = "[$symbol $branch]($style) "
+symbol = '🌱'
+
